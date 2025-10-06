@@ -2,8 +2,8 @@
 # Config
 # ========================================================================================
 
-# GitHub Pages 루트( username.github.io )에서 사용할 주소
-url:      https://username.github.io
+# GitHub Pages 루트( namgyeongtae.github.io )에서 사용할 주소
+url:      https://namgyeongtae.github.io
 baseurl:  ''   # 루트일 때는 반드시 빈 문자열
 
 # ---------------------------------------------------------------------------------------
