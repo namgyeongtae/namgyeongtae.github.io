@@ -1,0 +1,122 @@
+/* === Retro Game Portfolio Theme (drop-in override) ===
+   How to use:
+   1) Put this file next to css/style.css as css/retro-portfolio.css
+   2) In index.html <head>, load Google Fonts (Press Start 2P, VT323), 
+      then include this file AFTER style.css
+   3) No HTML rewrite required; this overrides existing classes in your template.
+*/
+
+/* ---------- Palette & Base ---------- */
+:root{
+  --bg-0:#0b0e12;        /* dark */
+  --bg-1:#121621;        /* panel */
+  --ink:#e8f0ff;         /* text */
+  --muted:#8aa0c2;       /* subtle text */
+  --acc-0:#00ffd1;       /* neon cyan */
+  --acc-1:#ff3b81;       /* neon pink */
+  --acc-2:#ffd400;       /* gold */
+  --glow:0 0 12px rgba(0,255,209,.5),0 0 32px rgba(0,255,209,.25);
+}
+
+html,body{background:var(--bg-0); color:var(--ink);} 
+body{font-family:"VT323", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size:20px; letter-spacing:.2px;}
+
+/* Pixel headings */
+h1,h2,h3,.navbar-brand{font-family:"Press Start 2P", monospace; letter-spacing:1px; text-transform:none;}
+
+/* Links */
+a{color:var(--acc-0);}
+a:hover{color:var(--acc-1); text-decoration:none;}
+
+/* ---------- Navbar ---------- */
+.navbar{background:linear-gradient(180deg, rgba(18,22,33,.95), rgba(11,14,18,.95)); box-shadow:0 2px 0 #000, 0 0 0 3px #1a1f2c inset;}
+.navbar .navbar-brand{color:var(--acc-0)!important; text-shadow:var(--glow);} 
+.navbar .nav-link{position:relative; color:var(--ink)!important; opacity:.85;}
+.navbar .nav-link.active, .navbar .nav-link:hover{color:var(--acc-2)!important; text-shadow:0 0 8px rgba(255,212,0,.45);} 
+
+/* Tiny pixel caret under active nav */
+.navbar .nav-link.active::after{content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-8px; width:8px; height:8px; background:var(--acc-2); box-shadow:0 0 0 2px #000;}
+
+/* ---------- Hero / Home ---------- */
+.hero-wrap{background-color:#0f1220; background-blend-mode:overlay;}
+/* Optional: fallback background if none set in main CSS */
+.hero-wrap{background-image: radial-gradient(1200px 600px at 70% 30%, rgba(0,255,209,.08), transparent 60%),
+                              url('../images/bg_1.jpg');
+            background-size:cover; background-position:center;}
+/* CRT scanlines + vignette */
+.hero-wrap::before{content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+  mix-blend-mode:overlay;}
+/* Subheading & title glow */
+.hero-wrap .subheading{color:var(--acc-2); text-shadow:0 0 6px rgba(255,212,0,.45);} 
+.hero-wrap h1{color:#fff; text-shadow:0 0 12px rgba(0,255,209,.4), 0 0 24px rgba(0,255,209,.2);} 
+.hero-wrap h2{color:#e8f0ff; opacity:.9;}
+
+/* Rotating text cursor style */
+.txt-rotate::after{content:"_"; animation:blink 1s steps(1,end) infinite; color:var(--acc-1);} 
+@keyframes blink{50%{opacity:0;}}
+
+/* ---------- Buttons (8-bit) ---------- */
+.btn{font-family:"Press Start 2P", monospace; font-size:12px; letter-spacing:.5px;}
+.btn-primary{background:var(--acc-1); border-color:#000; color:#0b0e12; box-shadow:0 0 0 3px #000 inset, 4px 4px 0 #000;}
+.btn-primary:hover{filter:brightness(1.08);} 
+.btn-outline-secondary{color:var(--acc-0); border:3px solid var(--acc-0); background:transparent; box-shadow:4px 4px 0 #000;}
+.btn-outline-secondary:hover{background:var(--acc-0); color:#0b0e12;}
+
+/* ---------- Cards / Resume blocks ---------- */
+.resume-wrap{background:var(--bg-1); border:3px solid #000; box-shadow:8px 8px 0 #000;}
+.resume-wrap .icon{background:linear-gradient(180deg, var(--acc-0), var(--acc-1)); color:#0b0e12; box-shadow:0 0 0 3px #000 inset;}
+.resume-wrap .text .date{color:var(--acc-2);} 
+
+/* ---------- Progress Bars -> Pixel bars ---------- */
+.progress{height:18px; background:#0d1018; border:3px solid #000; box-shadow:inset -4px -4px 0 rgba(0,0,0,.6);}
+.progress-bar{image-rendering:pixelated; background:
+  linear-gradient(90deg, rgba(0,255,209,.4), rgba(0,255,209,.9)),
+  repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 8px, rgba(255,255,255,.05) 8px 16px);
+  border-right:3px solid #000;}
+/* Different accent colors by color-n classes if they exist */
+.progress-bar.color-2{background:linear-gradient(90deg, rgba(255,59,129,.45), rgba(255,59,129,.9)), repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 8px, rgba(255,255,255,.05) 8px 16px);} 
+.progress-bar.color-3{background:linear-gradient(90deg, rgba(0,178,255,.45), rgba(0,178,255,.9)), repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 8px, rgba(255,255,255,.05) 8px 16px);} 
+.progress-bar.color-4{background:linear-gradient(90deg, rgba(255,212,0,.45), rgba(255,212,0,.9)), repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 8px, rgba(255,255,255,.05) 8px 16px);} 
+.progress-bar.color-6{background:linear-gradient(90deg, rgba(148, 79, 255,.45), rgba(148,79,255,.9)), repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 8px, rgba(255,255,255,.05) 8px 16px);} 
+
+/* ---------- Project Gallery ---------- */
+.ftco-project .project{border:3px solid #000; box-shadow:8px 8px 0 #000; filter:saturate(1.2) contrast(1.05);} 
+.ftco-project .project .text h3 a{color:var(--acc-2);} 
+.ftco-project .project:hover{transform:translate(-2px,-2px);}
+
+/* ---------- Hire me banner ---------- */
+.ftco-hireme{background-size:cover; background-position:center;}
+.ftco-hireme .overlay{background:radial-gradient(ellipse at center, rgba(0,0,0,.2), rgba(0,0,0,.65));}
+.ftco-hireme h2{color:#fff; text-shadow:var(--glow);} 
+
+/* ---------- Contact boxes ---------- */
+.contact-info .box{background:var(--bg-1); border:3px solid #000; box-shadow:6px 6px 0 #000;}
+.contact-info .icon{background:var(--acc-0); color:#0b0e12; box-shadow:0 0 0 3px #000 inset;}
+
+/* ---------- Footer ---------- */
+.ftco-footer{background:#0c1018; border-top:3px solid #000;}
+.ftco-footer a{color:var(--acc-0);} 
+.ftco-footer a:hover{color:var(--acc-1);} 
+
+/* ---------- Misc / Utilities ---------- */
+/* Pixel focus outline */
+:focus{outline:3px solid var(--acc-2)!important; outline-offset:2px;}
+
+/* Pixel divider */
+.heading:after{content:""; display:block; height:6px; margin:14px 0; background:repeating-linear-gradient(90deg, var(--acc-1) 0 12px, var(--acc-0) 12px 24px, var(--acc-2) 24px 36px);} 
+
+/* Mouse wheel arrow neon */
+.mouse .mouse-wheel span{color:var(--acc-0); text-shadow:var(--glow);} 
+
+/* Loader tint */
+#ftco-loader .path{stroke:var(--acc-1);} 
+
+/* Optional: subtle grid background */
+body::before{content:""; position:fixed; inset:0; pointer-events:none; background:
+  linear-gradient(rgba(255,255,255,.02), rgba(255,255,255,.02)),
+  repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 32px),
+  repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 32px);
+}
