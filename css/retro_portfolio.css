@@ -77,3 +77,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
 .about-info span:first-child{color:var(--acc-2)!important;font-family:"Press Start 2P",monospace;font-size:13px;}
 .about-info span:last-child,.about-info a{color:var(--ink)!important;}
 .about-info a:hover{color:var(--acc-0)!important;}
+
+.counter-wrap span {color: var(--ink) !important;}
+h2.mb-4 {color: var(--ink) !important;text-shadow: 0 0 6px rgba(255,255,255,.3);}
+span { color: var(--ink) !important; }
