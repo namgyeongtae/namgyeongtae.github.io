@@ -80,4 +80,3 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
 
 .counter-wrap span {color: var(--ink) !important;}
 h2.mb-4 {color: var(--ink) !important;text-shadow: 0 0 6px rgba(255,255,255,.3);}
-span { color: var(--ink) !important; }
