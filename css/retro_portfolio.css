@@ -77,3 +77,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
 .about-info span:first-child{color:var(--acc-2)!important;font-family:"Press Start 2P",monospace;font-size:13px;}
 .about-info span:last-child,.about-info a{color:var(--ink)!important;}
 .about-info a:hover{color:var(--acc-0)!important;}
+
+.hero-wrap .subheading {
+  color: var(--acc-2) !important;   /* 노란색 (기본 변수: #ffd400) */
+  font-size: 28px !important;       /* 글자 크기 키우기 */
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 212, 0, 0.5); /* 부드러운 빛 효과 */
+}
