@@ -11,7 +11,7 @@
   --shadow:#06080c;
   --glow:0 0 12px rgba(0,255,209,.5),0 0 32px rgba(0,255,209,.25);
 }
-html,body{background:var(--bg-0);} 
+html,body{background:var(--bg-0);color:var(--ink);} 
 body{font-family:"VT323",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:20px;letter-spacing:.2px;}
 h1,h2,h3,.navbar-brand{font-family:"Press Start 2P",monospace;letter-spacing:1px;text-transform:none;}
 a{color:var(--acc-0);}a:hover{color:var(--acc-1);text-decoration:none;}
