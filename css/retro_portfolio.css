@@ -120,6 +120,26 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
     background-size: cover;
     background-position: center;
   }
+  /* Resume 섹션의 직무명 'Unity Client Developer'만 강하게 오버라이드 */
+  body.retro .resume-wrap .subheading {
+    color: var(--acc-2) !important;          /* 노란색 */
+    font-size: 16px !important;               /* 크기 */
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 10px rgba(255,212,0,.5) !important;
+
+    /* 템플릿 배지 스타일 무효화 */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: inline !important;
+
+    /* 희미해지는 원인 제거 */
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  /* 히어로(Home) 인사말은 기존 유지 */
   body.retro .hero-wrap .subheading {
     color: var(--acc-2) !important;
     font-size: 28px !important;
@@ -138,4 +158,6 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
     color: var(--ink) !important;
   }
   body.retro .about-info a:hover { color: var(--acc-0) !important; }
+
+  body.retro .heading {color:chartreuse;text-shadow:0 0 10px rgba(0,255,209,.5), 0 0 20px rgba(0,255,209,.25);}
 }
