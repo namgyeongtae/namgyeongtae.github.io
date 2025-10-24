@@ -83,81 +83,81 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;background:li
   font-size: 28px !important;       /* 글자 크기 키우기 */
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(255, 212, 0, 0.5); /* 부드러운 빛 효과 */
-
-  /* === Retro scope (no global forcing) === */
-  body.retro { background: var(--bg-0); }
-
-  /* 레이아웃/섹션 기본 텍스트만 레트로 톤으로 */
-  body.retro .hero-wrap,
-  body.retro .ftco-section,
-  body.retro .resume-wrap,
-  body.retro .contact-info .box,
-  body.retro .ftco-footer {
-    color: var(--ink);
-  }
-
-  /* 제목/강조 텍스트 */
-  body.retro h1,
-  body.retro h2,
-  body.retro h3,
-  body.retro .position,
-  body.retro b,
-  body.retro strong {
-    color: var(--ink);
-  }
-
-  /* 링크 */
-  body.retro a { color: var(--acc-0); }
-  body.retro a:hover { color: var(--acc-1); }
-
-  /* Home 배경/서브헤딩 */
-  body.retro .hero-wrap {
-    background-color: #0f1220;
-    background-blend-mode: overlay;
-    background-image:
-      radial-gradient(1200px 600px at 70% 30%, rgba(0,255,209,.08), transparent 60%),
-      url('../images/retro_bg.gif');  /* 네가 쓰는 배경으로 유지/교체 */
-    background-size: cover;
-    background-position: center;
-  }
-  /* Resume 섹션의 직무명 'Unity Client Developer'만 강하게 오버라이드 */
-  body.retro .resume-wrap .subheading {
-    color: var(--acc-2) !important;          /* 노란색 */
-    font-size: 16px !important;               /* 크기 */
-    letter-spacing: 2px !important;
-    text-shadow: 0 0 10px rgba(255,212,0,.5) !important;
-
-    /* 템플릿 배지 스타일 무효화 */
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    display: inline !important;
-
-    /* 희미해지는 원인 제거 */
-    opacity: 1 !important;
-    filter: none !important;
-  }
-
-  /* 히어로(Home) 인사말은 기존 유지 */
-  body.retro .hero-wrap .subheading {
-    color: var(--acc-2) !important;
-    font-size: 28px !important;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255,212,0,.5);
-  }
-
-  /* About 레이블/값 가독성 */
-  body.retro .about-info span:first-child {
-    color: var(--acc-2) !important;
-    font-family: "Press Start 2P", monospace;
-    font-size: 13px;
-  }
-  body.retro .about-info span:last-child,
-  body.retro .about-info a {
-    color: var(--ink) !important;
-  }
-  body.retro .about-info a:hover { color: var(--acc-0) !important; }
-
-  body.retro .heading {color:chartreuse;text-shadow:0 0 10px rgba(0,255,209,.5), 0 0 20px rgba(0,255,209,.25);}
 }
+
+/* === Retro scope (no global forcing) === */
+body.retro { background: var(--bg-0); }
+
+/* 레이아웃/섹션 기본 텍스트만 레트로 톤으로 */
+body.retro .hero-wrap,
+body.retro .ftco-section,
+body.retro .resume-wrap,
+body.retro .contact-info .box,
+body.retro .ftco-footer {
+  color: var(--ink);
+}
+
+/* 제목/강조 텍스트 */
+body.retro h1,
+body.retro h2,
+body.retro h3,
+body.retro .position,
+body.retro b,
+body.retro strong {
+  color: var(--ink);
+}
+
+/* 링크 */
+body.retro a { color: var(--acc-0); }
+body.retro a:hover { color: var(--acc-1); }
+
+/* Home 배경/서브헤딩 */
+body.retro .hero-wrap {
+  background-color: #0f1220;
+  background-blend-mode: overlay;
+  background-image:
+    radial-gradient(1200px 600px at 70% 30%, rgba(0,255,209,.08), transparent 60%),
+    url('../images/retro_bg.gif');  /* 네가 쓰는 배경으로 유지/교체 */
+  background-size: cover;
+  background-position: center;
+}
+
+/* 히어로(Home) 인사말은 기존 유지 */
+body.retro .hero-wrap .subheading {
+  color: var(--acc-2) !important;
+  font-size: 28px !important;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255,212,0,.5);
+}
+
+/* About 레이블/값 가독성 */
+body.retro .about-info span:first-child {
+  color: var(--acc-2) !important;
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+}
+body.retro .about-info span:last-child,
+body.retro .about-info a {
+  color: var(--ink) !important;
+}
+body.retro .about-info a:hover { color: var(--acc-0) !important; }
+
+body.retro .heading {color:chartreuse;text-shadow:0 0 10px rgba(0,255,209,.5), 0 0 20px rgba(0,255,209,.25);}
+
+body.retro #resume-section .resume-wrap .text .subheading {
+  color: var(--acc-2) !important;
+  -webkit-text-fill-color: var(--acc-2) !important;
+  font-size: 16px !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 10px rgba(255,212,0,.5) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  text-transform: none !important;
+}
+
