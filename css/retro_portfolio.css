@@ -161,3 +161,93 @@ body.retro #resume-section .resume-wrap .text .subheading {
   text-transform: none !important;
 }
 
+/* --- Side Project Tiles --- */
+.ftco-project {
+  background-color: var(--bg-0); /* 섹션 전체 어두운 배경 */
+}
+
+.ftco-project .project {
+  position: relative;
+  background-color: var(--bg-1);         /* 기본 어두운 배경 */
+  background-blend-mode: multiply;       /* 이미지와 어둡게 블렌드 */
+  border: 3px solid var(--border);
+  box-shadow: 8px 8px 0 var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.ftco-project .project .overlay {
+  background: rgba(5, 8, 15, 0.55);      /* 어두운 반투명 오버레이 */
+  transition: background 0.3s ease;
+}
+
+.ftco-project .project:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--shadow);
+}
+
+.ftco-project .project:hover .overlay {
+  background: rgba(0, 255, 209, 0.15);   /* hover 시 살짝 네온 느낌 */
+}
+
+.ftco-project .project .text {
+  color: var(--ink);
+  text-shadow: 0 0 8px rgba(0, 255, 209, 0.3);
+}
+
+.ftco-project .project .text h3 a {
+  color: var(--acc-0);                   /* 사이언톤 타이틀 */
+}
+
+.ftco-project .project .text span {
+  color: var(--muted);                   /* 보조 텍스트 톤 다운 */
+}
+
+/* 프로젝트 카드 배경을 사이트 톤으로 */
+.card.project-card,
+.card.project-card .card-body{
+  background-color: var(--bg-1) !important;
+  color: var(--ink) !important;
+  border: 3px solid var(--border) !important;
+  box-shadow: 8px 8px 0 var(--shadow);
+}
+
+/* 카드 상단 미디어 영역도 흰 배경 제거 */
+.card.project-card .card-img-top,
+.card.project-card .embed-responsive { background: transparent !important; }
+
+/* 버튼/배지 색 유지 */
+.card.project-card .badge { margin-right: 6px; }
+
+/* --- Side Project 타일 이미지 영역 통일 --- */
+
+/* 모든 프로젝트 카드의 상단 미디어 영역 높이를 동일하게 */
+.ftco-project .project iframe,
+.ftco-project .project img {
+  width: 100%;
+  height: 220px;           /* 카드 높이 고정 (원하는 대로 조정 가능: 200~250px 추천) */
+  object-fit: cover;       /* 이미지 비율 유지하면서 꽉 채우기 */
+  border-radius: 4px 4px 0 0;
+}
+
+/* iframe 감싸는 부모 div도 강제 높이 맞춤 */
+.ftco-project .project .embed-responsive {
+  height: 220px !important;
+  overflow: hidden;
+}
+
+/* 카드 내 텍스트 영역 여백 정리 */
+.ftco-project .project .text {
+  padding: 16px;
+  min-height: 160px;       /* 텍스트 영역 최소 높이 통일 */
+}
+
+.card-title {
+  color: #FFD400 !important; /* 밝은 노랑 */
+  text-shadow: 0 0 6px rgba(255, 212, 0, 0.5); /* 살짝 빛나는 효과 (선택사항) */
+}
+
+.card-game-title {
+  color: var(--acc-0) !important;
+  text-shadow: 0 0 6px rgba(0, 255, 209, 0.5);
+}
+
