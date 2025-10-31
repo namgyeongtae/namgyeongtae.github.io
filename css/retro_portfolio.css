@@ -251,3 +251,184 @@ body.retro #resume-section .resume-wrap .text .subheading {
   text-shadow: 0 0 6px rgba(0, 255, 209, 0.5);
 }
 
+/* 모달 전체 화면 어둡게 */
+.modal-backdrop.show {
+  opacity: 0.85 !important;
+  background: #000 !important;
+}
+
+/* 모달 본체(배경 카드) 스타일 */
+.modal-content {
+  background: var(--bg-1) !important; /* 기존 테마의 어두운 배경 */
+  border: 3px solid var(--border) !important;
+  box-shadow: 12px 12px 0 var(--shadow) !important;
+  color: var(--ink) !important;
+  border-radius: 0 !important;
+}
+
+/* 모달 헤더 텍스트 및 닫기 버튼 */
+.modal-header, .modal-title {
+  color: var(--acc-2) !important; /* 노란색 */
+  font-family: "Press Start 2P", monospace;
+  text-shadow: 0 0 8px rgba(255,212,0,.4);
+}
+
+/* 닫기(X) 버튼 */
+.modal-header .close,
+.modal-header button.close {
+  color: var(--acc-2) !important;
+  opacity: 1 !important;
+}
+
+/* === Modal tabs: compact underline style === */
+.modal .nav-tabs{
+  border-bottom: 1px solid var(--border);
+  gap: 8px;                 /* 탭 간격 */
+  flex-wrap: wrap;
+}
+.modal .nav-tabs .nav-link{
+  background: transparent !important;
+  border: none !important;
+  padding: 6px 10px !important;   /* 작게 */
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;                 /* 과도한 크기 축소 */
+  color: var(--muted);
+  line-height: 1.2;
+}
+.modal .nav-tabs .nav-link:hover{
+  color: var(--ink);
+}
+.modal .nav-tabs .nav-link.active{
+  color: var(--acc-2) !important;               /* 강조 색 */
+  border-bottom: 3px solid var(--acc-2) !important;  /* 언더라인 */
+}
+
+/* 탭 아래 내용 박스 여백만 정리 */
+.modal .tab-content{
+  padding-top: 12px;
+}
+
+/* 모바일에서 탭이 많을 때 옆으로 스크롤 */
+@media (max-width: 576px){
+  .modal .nav-tabs{
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+  .modal .nav-tabs .nav-link{ flex: 0 0 auto; }
+}
+
+/* ==== Challenges & Solutions (modal tab) ==== */
+.cs-section{ 
+  background: transparent;
+  margin-bottom: 20px;
+}
+.cs-heading{
+  margin: 0 0 10px 0;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 2px solid var(--border);
+  box-shadow: 6px 6px 0 var(--shadow);
+  color: var(--ink);
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+}
+.cs-row{ row-gap: 10px; }
+
+/* 카드 공통 */
+.cs-card{
+  background: var(--bg-1);
+  color: var(--ink);
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  box-shadow: 6px 6px 0 var(--shadow);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.cs-card .cs-label{
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.06);
+}
+
+/* 타입별 색감 (연한 배경 + 좌측 보더) */
+.cs-problem{ 
+  background: rgba(244, 67, 54, 0.10);
+  border-left: 6px solid #ef5350;
+}
+.cs-problem .cs-label{ background: rgba(244, 67, 54, 0.18); }
+
+.cs-root{
+  background: rgba(3, 169, 244, 0.10);
+  border-left: 6px solid #29b6f6;
+}
+.cs-root .cs-label{ background: rgba(3, 169, 244, 0.18); }
+
+.cs-solution{
+  background: rgba(76, 175, 80, 0.10);
+  border-left: 6px solid #66bb6a;
+}
+.cs-solution .cs-label{ background: rgba(76, 175, 80, 0.18); }
+
+.cs-result{
+  background: rgba(0, 188, 212, 0.10);
+  border-left: 6px solid #26c6da;
+}
+.cs-result .cs-label{ background: rgba(0, 188, 212, 0.18); }
+
+/* 모바일 간격 */
+@media (max-width: 576px){
+  .cs-heading{ font-size: 13px; }
+  .cs-card{ padding: 10px 12px; }
+}
+
+/* ==== Technical Details (modal tab) ==== */
+.td-section{ margin-bottom: 18px; }
+
+.td-heading{
+  margin: 0 0 10px 0;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 2px solid var(--border);
+  box-shadow: 6px 6px 0 var(--shadow);
+  color: var(--ink);
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+}
+
+.td-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-top: 1px solid var(--border);
+}
+.td-list li{
+  position: relative;
+  padding: 12px 10px 12px 28px;   /* 좌측 여백(아이콘 자리) */
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.35;
+}
+.td-list li::before{
+  content: "";
+  position: absolute;
+  left: 12px; top: 50%;
+  width: 8px; height: 8px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--acc-0);       /* 사이언 점 */
+  box-shadow: 0 0 6px rgba(0,255,209,.5);
+}
+.td-list li:hover{
+  background: rgba(0,255,209,.05); /* 살짝 강조 */
+}
+@media (max-width: 576px){
+  .td-heading{ font-size: 13px; }
+  .td-list li{ padding: 10px 8px 10px 26px; }
+}
+

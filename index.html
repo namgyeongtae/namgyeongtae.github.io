@@ -453,10 +453,8 @@
         <div class="modal-header">
           <nav class="nav nav-tabs" role="tablist">
             <a class="nav-item nav-link active" data-toggle="tab" href="#bk-overview" role="tab">Overview</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-team" role="tab">Team & Collaboration</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#bk-tech" role="tab">Technical Details</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#bk-chal" role="tab">Challenges & Solutions</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-time" role="tab">Timeline</a>
           </nav>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
         </div>
@@ -468,8 +466,8 @@
               <!-- 유튜브 영상이 있으면 iframe, 없으면 스크린샷 img로 교체 -->
               <img class="embed-responsive-item" src="images/BeatKHS_Bg.png" alt="BeatKHS">
             </div>
-            <h5>Project Overview</h5>
-            <p style="color: black; font-size: 1.0rem;">정확한 오디오 타이밍과 입력 판정 일관성에 집중한 리듬게임. 내부 타임라인 에디터로 맵 제작/검수를 자동화.</p>
+            <h5 class="card-game-title">Project Overview</h5>
+            <p>This project is a <b style="color: var(--acc-1);">Rhythm Game</b> prototype inspired by DJ Max, recreated using <b style="color: var(--acc-1);">Unity 2D</b> in the BMS format. I developed it solo, studying and implementing unfamiliar technologies and game genres along the way. During development, I focused on synchronizing the gameplay precisely with the actual music.</p>
             <div class="mb-2">
               <span class="badge badge-pill badge-primary">Team of 1</span>
               <span class="ml-3 text-muted">Role: Dev / Designer</span>
@@ -481,37 +479,49 @@
             </div>
           </div>
 
-          <!-- Team & Collaboration -->
-          <div class="tab-pane fade" id="bk-team" role="tabpanel">
-            <ul class="mb-2">
-              <li>기획/맵 제작 파이프라인: 타임라인 에디터 → JSON 내보내기</li>
-              <li>QA 자동화: 판정 리포트/스코어 검증 스크립트</li>
-            </ul>
-          </div>
-
           <!-- Technical Details -->
           <div class="tab-pane fade" id="bk-tech" role="tabpanel">
-            <ul>
-              <li>4레인 노트 매핑, 롱노트 처리, 판정 윈도우(Perfect/Good/Bad/Miss)</li>
-              <li>FMOD 이벤트-비트 동기, 입력 지연 보정</li>
-              <li>JSON 저장/로드, Firebase 점수 리더보드</li>
+            <h5 class="td-heading">Technical Factor</h5>
+            <ul class="td-list">
+              <li>UI 시스템 프레임워크 구축</li>
+              <li>FMOD 기반 오디오 재생 처리</li>
+              <li>게임 플레이 시스템 구현</li>
+              <li>Unity Editor를 이용한 채보 편집 툴 개발</li>
+              <li>채보 데이터에 따른 노트 오브젝트 생성 및 관리</li>
+              <li>Firebase 연동을 통한 로그인 시스템 및 점수 저장 시스템 구현</li>
             </ul>
           </div>
 
-          <!-- Challenges & Solutions -->
+          <!-- ===== Challenges & Solutions ===== -->
           <div class="tab-pane fade" id="bk-chal" role="tabpanel">
-            <ul>
-              <li>입력/오디오 타이밍 오차 → 샘플 기반 보정 + 프레임 독립 판정</li>
-              <li>맵 검증 시간 → 내부 에디터 자동화로 제작/QA 단축</li>
-            </ul>
-          </div>
-
-          <!-- Timeline -->
-          <div class="tab-pane fade" id="bk-time" role="tabpanel">
-            <ul>
-              <li>2025.01 ~ 04: 기본 시스템/에디터/곡 3종 제작</li>
-              <li>2025.05~ : 에디터 개선/커뮤니티 공개 준비</li>
-            </ul>
+            <div class="cs-section">
+              <h5 class="cs-heading">Combo Cumulation Issue</h5>
+              <div class="row cs-row">
+                <div class="col-md-6">
+                  <div class="cs-card cs-problem">
+                    <div class="cs-label">❌ Problem</div>
+                    <p>같은 곡을 시연할 때마다 같은 롱노트로부터 얻어지는 콤보의 수가 달라지는 현상 발생</p>
+                  </div>
+                  <div class="cs-card cs-root">
+                    <div class="cs-label">🔎 Root Cause</div>
+                    <ul>
+                      <li>롱노트를 누르는 동안의 콤보 획득 로직을 프레임에 의존하는 Update 함수에서 계산한 것이 원인</li>
+                      <li>고정적인 콤보 수치가 아닌 프레임으로 콤보를 실시간으로 계산하게 되면서 때마다의 프레임 성능마다 얻어지는 콤보가 달라지는 것</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="cs-card cs-solution">
+                    <div class="cs-label">✅ Solution</div>
+                    <p>롱노트를 생성할 시 채보 데이터의 롱노트 지속 시간(Duration)과 간격(Combo Interval)을 설정해 사전에 먼저 해당 롱노트를 통해 얻어지는 고정적인 콤보 수 (TargetCombo)를 계산하여 롱노트가 딱 이 콤보 수 만큼만 판정되도록 수정하여 해결</p>
+                  </div>
+                  <div class="cs-card cs-result">
+                    <div class="cs-label">📈 Result</div>
+                    <p>롱노트로부터 얻어지는 콤보가 매 플레이마다 동일하게 누적</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -525,10 +535,8 @@
         <div class="modal-header">
           <nav class="nav nav-tabs" role="tablist">
             <a class="nav-item nav-link active" data-toggle="tab" href="#ca-overview" role="tab">Overview</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#ca-team" role="tab">Team & Collaboration</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#ca-tech" role="tab">Technical Details</a>
             <a class="nav-item nav-link" data-toggle="tab" href="#ca-chal" role="tab">Challenges & Solutions</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#ca-time" role="tab">Timeline</a>
           </nav>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
         </div>
@@ -544,6 +552,7 @@
               <span class="badge badge-pill badge-primary">Team of 2</span>
               <span class="ml-3 text-muted">Role: Client Programmer</span>
             </div>
+
             <div class="mb-2">
               <span class="badge badge-light">Unity</span>
               <span class="badge badge-light">Photon Fusion</span>
@@ -551,18 +560,14 @@
             </div>
           </div>
 
-          <div class="tab-pane fade" id="ca-team" role="tabpanel">
-            <ul><li>매치메이킹/룸 로직, 상태 동기화 정책 합의</li></ul>
-          </div>
           <div class="tab-pane fade" id="ca-tech" role="tabpanel">
             <ul><li>Server/Client Authority, Input Prediction, RPC/Networked Objects</li></ul>
           </div>
+
           <div class="tab-pane fade" id="ca-chal" role="tabpanel">
             <ul><li>지연/패킷 손실 대응: 스냅샷 보간 + 리와인드 검토</li></ul>
           </div>
-          <div class="tab-pane fade" id="ca-time" role="tabpanel">
-            <ul><li>2025.08 ~ 09: 프로토타입 + PvP</li></ul>
-          </div>
+
         </div>
       </div>
     </div>
@@ -574,11 +579,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <nav class="nav nav-tabs" role="tablist">
-            <a class="nav-item nav-link active" data-toggle="tab" href="#bk-overview" role="tab">Overview</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-team" role="tab">Team & Collaboration</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-tech" role="tab">Technical Details</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-chal" role="tab">Challenges & Solutions</a>
-            <a class="nav-item nav-link" data-toggle="tab" href="#bk-time" role="tab">Timeline</a>
+            <a class="nav-item nav-link active" data-toggle="tab" href="#ka-overview" role="tab">Overview</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#ka-team" role="tab">Team & Collaboration</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#ka-tech" role="tab">Technical Details</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#ka-chal" role="tab">Challenges & Solutions</a>
           </nav>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
         </div>
@@ -603,7 +607,7 @@
           </div>
 
           <!-- Team & Collaboration -->
-          <div class="tab-pane fade" id="bk-team" role="tabpanel">
+          <div class="tab-pane fade" id="ka-team" role="tabpanel">
             <ul class="mb-2">
               <li>기획/맵 제작 파이프라인: 타임라인 에디터 → JSON 내보내기</li>
               <li>QA 자동화: 판정 리포트/스코어 검증 스크립트</li>
@@ -611,7 +615,7 @@
           </div>
 
           <!-- Technical Details -->
-          <div class="tab-pane fade" id="bk-tech" role="tabpanel">
+          <div class="tab-pane fade" id="ka-tech" role="tabpanel">
             <ul>
               <li>4레인 노트 매핑, 롱노트 처리, 판정 윈도우(Perfect/Good/Bad/Miss)</li>
               <li>FMOD 이벤트-비트 동기, 입력 지연 보정</li>
@@ -620,18 +624,10 @@
           </div>
 
           <!-- Challenges & Solutions -->
-          <div class="tab-pane fade" id="bk-chal" role="tabpanel">
+          <div class="tab-pane fade" id="ka-chal" role="tabpanel">
             <ul>
               <li>입력/오디오 타이밍 오차 → 샘플 기반 보정 + 프레임 독립 판정</li>
               <li>맵 검증 시간 → 내부 에디터 자동화로 제작/QA 단축</li>
-            </ul>
-          </div>
-
-          <!-- Timeline -->
-          <div class="tab-pane fade" id="bk-time" role="tabpanel">
-            <ul>
-              <li>2025.01 ~ 04: 기본 시스템/에디터/곡 3종 제작</li>
-              <li>2025.05~ : 에디터 개선/커뮤니티 공개 준비</li>
             </ul>
           </div>
         </div>
